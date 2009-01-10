@@ -12,8 +12,8 @@ module Pants
     property :trusted,              Boolean, :default => false
     property :created_at,           DateTime, :default => Proc.new { Time.now }
     property :updated_at,           DateTime, :default => Proc.new { Time.now }
-    property :email,                String, :unique => true
-    property :name,                 String, :unique => true
+    property :email,                String, :unique => true, :length => 255
+    property :name,                 String, :unique => true, :length => 100
     
     has n, :posts, :class_name => "Pants::Post", :order => [:created_at.desc]
     has n, :comments, :class_name => "Pants::Comment", :order => [:created_at.desc]
@@ -22,8 +22,8 @@ module Pants
   class Post
     include DataMapper::Resource
     property :id,                   Serial
-    property :title,                String
-    property :slug,                 String, :key => true, :index => true
+    property :title,                String, :length => 255
+    property :slug,                 String, :key => true, :index => true, :length => 255
     property :published,            Boolean, :default => false
     property :created_at,           DateTime, :default => Proc.new { Time.now }
     property :updated_at,           DateTime, :default => Proc.new { Time.now }
@@ -38,13 +38,30 @@ module Pants
   class Comment
     include DataMapper::Resource
     property :id,                 Serial
-    property :author_name,        String, :default => "Anonymous"
-    property :author_email,       String
-    property :author_website,     String
+    property :author_name,        String, :default => "Anonymous", :length => 100
+    property :author_email,       String, :length => 255
+    property :author_website,     String, :length => 255
     property :created_at,         DateTime, :default => Proc.new { Time.now }
     property :updated_at,         DateTime, :default => Proc.new { Time.now }
     property :body,               Text
 
     belongs_to :post,             :class_name => "Pants::Post"
+  end
+  
+  class Setting
+    include DataMapper::Resource
+    property :id, Serial
+    property :name, String, :unique => true
+    property :value, String, :length => 255
+    
+    def self.[](k)
+      Setting.first(:name => k.to_s).value
+    end
+
+    def self.[]=(k,v)
+      k = k.to_s
+      s = Setting.first(:name => k) || Setting.create(:name => k)
+      s.update_attributes(:value => v)
+    end
   end
 end

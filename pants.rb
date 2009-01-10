@@ -18,8 +18,9 @@ configure do
 end
 
 get '/' do
-  "<h1>Welcome to my Pants.</h1><p>...it's not like it sounds</p><p>...not entirely, anyway</p>"
-#   @recent_users  = Heartmindcode::User.best_current_streak
-#   @alltime_users = Heartmindcode::User.best_alltime_streak
-#   haml :index
+  erb :index
 end
+
+get '/post' do
+  
+end 

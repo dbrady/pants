@@ -1,0 +1,29 @@
+body {
+    font-size: 100%;
+    font-family: Helvetica, Arial, sans-serif;
+    color: #030;
+    background: #ffe;
+    margin: 0px;
+    padding: 0px;
+}
+
+div.titlebar {
+    background: #cf6;
+    padding: 1em 1em 0.5em 1em;
+    width: 100%;
+}
+
+div.title {
+    font-size: 300%;
+    padding: 0px;
+}
+
+div.subtitle {
+    font-style: italic;
+    padding: 0px;
+}
+
+div.content {
+    padding-top: 0.5em;
+    margin: auto 1em;
+}

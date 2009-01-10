@@ -1,0 +1,16 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+  <head>
+    <title><%= Pants::Setting[:blog_title] %></title>
+    <link href="/stylesheets/pants.css" media="screen" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <div class="titlebar">
+      <div class="title"><%= Pants::Setting[:blog_title] %></div>
+      <div class="subtitle"><%= Pants::Setting[:blog_subtitle] %></div>
+    </div>
+    <div class="content">
+<%= yield %>
+    </div>
+  </body>
+</html>
