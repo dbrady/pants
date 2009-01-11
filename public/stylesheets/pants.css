@@ -1,7 +1,7 @@
 body {
     font-size: 100%;
     font-family: Helvetica, Arial, sans-serif;
-    color: #030;
+    color: #000;
     background: #ffe;
     margin: 0px;
     padding: 0px;
@@ -18,6 +18,18 @@ div.title {
     padding: 0px;
 }
 
+a, div.title a {
+    text-decoration: none;
+}
+
+div.title a:hover {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
 div.subtitle {
     font-style: italic;
     padding: 0px;
@@ -26,4 +38,52 @@ div.subtitle {
 div.content {
     padding-top: 0.5em;
     margin: auto 1em;
+}
+
+div.post-titlebar {
+    clear: both;
+}
+
+div.post-titletext {
+    background: #cc9;
+    margin-left: 90px;
+    padding: 5px 1em 1em 1em;
+}
+
+div.post-gravatar {
+    float: left;
+    padding-right: 1em;
+}
+
+div.post-title {
+    font-size: 200%;
+}
+
+div.post-byline {
+    font-style: italic;
+    font-size: 80%;
+}
+
+div.comment {
+    border-top: 1px dotted #999;
+    padding-top: 0.5em;
+    padding-left: 3em;
+    clear: both;
+}
+
+div.comment-gravatar {
+    float: left;
+    padding-right: 1em;
+}
+
+div.comment-header {
+    font-size: 80%;
+    font-style: italic;
+}
+
+div.footer {
+    font-size: 70%;
+    text-align: center;
+    padding-top: 0.5em;
+    border-top: 1px solid #999;
 }

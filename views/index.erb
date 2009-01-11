@@ -1,3 +1,7 @@
-This is my blog. Hi.
+<ul>
+<% @posts.each do |post| %>
+<li><%= post.published_at.strftime('%F') %>: <a href="<%= post.url %>"><%= post.title %></a></li>
+<% end %>
+</ul>
 
 

@@ -24,6 +24,7 @@ namespace :pants do
   task :setup => :init do
     DataMapper.auto_migrate!
     puts "Database reset"
+    
   end
 
   task :create_admin => :init do

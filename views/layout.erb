@@ -6,11 +6,12 @@
   </head>
   <body>
     <div class="titlebar">
-      <div class="title"><%= Pants::Setting[:blog_title] %></div>
+      <div class="title"><a href="/"><%= Pants::Setting[:blog_title] %></a></div>
       <div class="subtitle"><%= Pants::Setting[:blog_subtitle] %></div>
     </div>
     <div class="content">
 <%= yield %>
     </div>
+    <div class="footer">Powered by Pants! <a href="http://github.com/dbrady/pants">Patches welcome</a>.</div>
   </body>
 </html>

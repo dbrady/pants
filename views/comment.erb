@@ -1,0 +1,29 @@
+<div class="post-titlebar">
+  <div class="post-gravatar"><%= @post.gravatar %></div>
+  <div class="post-titletext">
+    <div class="post-title"><a href="<%= @post.url %>"><%= @post.title %></a></div>
+   <div class="post-byline">Published at <%= @post.published_at.strftime("%F %H:%M:%S") %> by <%= @post.author %></div>
+  </div>
+</div>
+<div class="post-body">
+<%= @post.body %>
+</div>
+<div class="post-comments">
+  <div class="post-comments-title">
+    <p>Post a comment:</p>
+  </div>
+  <form action="<%= @post.comment_url %>" method="POST">
+    <p><span class="comment-notes">
+<p>Before you comment, may I have your attention please? Thank you.</p>
+<p>This is a hacker blog. It's not meant to be pretty, which honestly is a relief because, I mean, look at it. So, the following form is pretty hackerish. Here's the deal: the textarea is HTML. No restrictions, no limits. Want to use embedded CSS? Great. Want to use any html tag? Tag away. Want to embed a movie? Go for it. There are two potential drawbacks to this, of course:</p>
+<ol><li>You have to type HTML tags to make anything work.</li><li>You can <i>totally</i> haxxor my blog.</li></ol>
+<p>I'll work on getting some markdown in place to make #1 easier. As for #2... look. The only thing I do better than web security is web design. See how nasty this website looks? Yeah. Think about that for a minute. Haxxoring this website is not going to be that much a challenge. So please: don't be a douche. I'll keep this power open as long as the number of interesting things commenters do here exceeds the number of crappy things commenters do.</p>
+<p>None of the fields below are required. If you give me an email address, I'll use it to hook up your gravatar. I may send personal email to that address, but I will not display or sell your address.</p>
+    </span></p>
+    <label for="author_name">Name: <input type="text" size="30" name="author_name"></label><br/>
+    <label for="author_email">Email: <input type="text" size="30" name="author_email"></label><br/>
+    <label for="author_website">Website: <input type="text" size="30" name="author_website"></label><br/>
+    <textarea rows="10" cols="80" name="body"></textarea>
+    <input type="submit" value="Post">
+  </form>
+</div>
