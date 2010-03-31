@@ -8,7 +8,7 @@ body {
 }
 
 div.titlebar {
-    background: #cf6;
+    background: #ef6;
     padding: 1em 1em 0.5em 1em;
     width: 100%;
 }
@@ -24,6 +24,10 @@ a, div.title a {
 
 div.title a:hover {
     text-decoration: none;
+}
+
+div.title a:link, div.title a:visited {
+    color: #000;
 }
 
 a:hover {

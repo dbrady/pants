@@ -1,0 +1,17 @@
+TODO
+----------------------------------------------------------------------
+
+- Specs, dangit
+
+- Authentication
+
+  - Simple: I'd like to be able to log into my own blog. This would
+    enable exotic features like moderating, editing, and my personal
+    favorite: being able to post.
+
+  - More complicated: Allow users to sign up with a confirmation
+    email, set their profile and gravatar, recover password. BLEAH,
+    this is starting to sound like work/bloat.
+
+- Posts aren't filtered by published_at date yet. If you put an
+  unpublished post in the database, it will show up immediately.
