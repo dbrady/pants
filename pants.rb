@@ -27,23 +27,23 @@ end
 get '/post/:year/:month/:mday/:slug' do
   # this is pretty gross--need to find right way to search for a DateTime when you have Y/m/d
   # or at least tuck these entrails into a finder
-  date1 = "%04d-%02d-%02d" % [params[:year].to_i, params[:month].to_i, params[:mday].to_i]
-  date2 = "%04d-%02d-%02d" % [params[:year].to_i, params[:month].to_i, params[:mday].to_i + 1]
-  @post = Pants::Post.first( :slug => params[:slug], :published_at.gt => date1, :published_at.lt => date2 )
+  date1 = Date.parse("%04d-%02d-%02d" % [params[:year].to_i, params[:month].to_i, params[:mday].to_i])
+  date2 = date1 + 1
+  @post = Pants::Post.first( :slug => params[:slug], :published_at.gt => date1.strftime("%F"), :published_at.lt => date2.strftime("%F") )
   erb :post
 end 
 
 get '/comments/:year/:month/:mday/:slug' do
-  date1 = "%04d-%02d-%02d" % [params[:year].to_i, params[:month].to_i, params[:mday].to_i]
-  date2 = "%04d-%02d-%02d" % [params[:year].to_i, params[:month].to_i, params[:mday].to_i + 1]
-  @post = Pants::Post.first( :slug => params[:slug], :published_at.gt => date1, :published_at.lt => date2 )
+  date1 = Date.parse("%04d-%02d-%02d" % [params[:year].to_i, params[:month].to_i, params[:mday].to_i])
+  date2 = date1 + 1
+  @post = Pants::Post.first( :slug => params[:slug], :published_at.gt => date1.strftime("%F"), :published_at.lt => date2.strftime("%F") )
   erb :comment
 end 
 
 post '/comments/:year/:month/:mday/:slug' do
-  date1 = "%04d-%02d-%02d" % [params[:year].to_i, params[:month].to_i, params[:mday].to_i]
-  date2 = "%04d-%02d-%02d" % [params[:year].to_i, params[:month].to_i, params[:mday].to_i + 1]
-  @post = Pants::Post.first( :slug => params[:slug], :published_at.gt => date1, :published_at.lt => date2 )
+  date1 = Date.parse("%04d-%02d-%02d" % [params[:year].to_i, params[:month].to_i, params[:mday].to_i])
+  date2 = date1 + 1
+  @post = Pants::Post.first( :slug => params[:slug], :published_at.gt => date1.strftime("%F"), :published_at.lt => date2.strftime("%F") )
 
   params[:created_at] = Time.now
   params[:updated_at] = Time.now
